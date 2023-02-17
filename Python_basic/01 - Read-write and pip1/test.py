@@ -59,13 +59,11 @@ def get_stat(file_name):
         for num, line in enumerate(file):
             line_upd = json.loads(line)
             purchases[line_upd['user_id']] = line_upd['category']
-            # with open('get_stat.txt', 'a', encoding='utf8') as code:
-            #     code.write(f"{line_upd['user_id']}: {line_upd['category']}\n")
+            with open('get_stat.txt', 'a', encoding='utf8') as code:
+                code.write(f"{line_upd['user_id']}: {line_upd['category']}\n")
 get_stat('purchase_log.txt')
 
 
-# Для каждого user_id в файле visit_log.csv определите третий столбец с категорией покупки (если покупка была, сам файл visit_log.csv изменять не надо).
-# Запишите в файл funnel.csv визиты из файла visit_log.csv, в которых были покупки с указанием категории.
 def get_analiz(file_name):
     with open('funnel.csv', 'a', encoding='utf8') as code:
         code.write(f"user_id,source, purchase\n")
