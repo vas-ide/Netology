@@ -25,7 +25,7 @@ calc_money()
 from datetime import datetime
 date_string = "May 25 2017 5:00AM"
 date_datetime = datetime.strptime(date_string, "%b %d %Y %I:%M%p" )
-
+traceback.print_exc
 
 print(type(date_datetime))
 print(date_datetime.year)
