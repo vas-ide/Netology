@@ -3,6 +3,26 @@
 # Задание 1.
 # Напишите функцию, которая принимает на вход строку и проверяет является ли она валидным транспортным номером.
 # Если да, то функция должна возвращать отдельно номер и регион.
+import re
+def auto_number(string):
+    decode_str = r'(\D{1}\d{3}\D{2})([\d]{2,3})'
+    try:
+        number_lst = re.findall(decode_str, string)
+        # print(f"{number_lst}")
+        lst_result = re.search(decode_str, string)
+        # print(f"{lst_result}")
+        print(f"Number - {lst_result.group(1)} Rigion - {lst_result.group(2)}")
+        return f"Number - {lst_result.group(1)} Rigion - {lst_result.group(2)}"
+    except:
+        print(f"Error's")
+
+
+auto_number("A013TA123")
+auto_number("A013TA23")
+
+
+
+
 #
 # Задание 2.
 # Постарайтесь написать (в крайнем случае найти) самый полный шаблон для проверки e-mail адресов через регулярное выражение, которая проверяет e-mail адрес на валидность. Можно руководствоваться следующими минимальными требованиями:
