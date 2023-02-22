@@ -37,14 +37,12 @@ for _ in my_email:
     check_email(_)
 # **Задание 3. **
 # Напишите функцию, которая будет удалять все последовательные повторы слов из заданной строки при помощи регулярных выражений.
-#
-test_lst = ["alllllloooneee", "Myyyyy nnnameee", "Aaaaallex"]
+
+test_lst = ["alone alone alone", "My My MY", "VAS VAS VAS"]
 def normalize_str(str_for_normalize):
-    normalize_example = re.sub(r'(\w+)(\s+\1)+', r'\1', str_for_normalize)
+    normalize_example = re.sub(r'([a-zA-Z]?)\s', r'\1', str_for_normalize)
     print(normalize_example)
     # return re.sub(r'(\w+)(\s+\1)+', r'\1', str_for_normalize)
-
-
 for _ in test_lst:
     normalize_str(_)
 
@@ -62,11 +60,16 @@ for _ in test_lst:
 # • +7 955 555 55 55;
 # • 7(955) 555-55-55;
 # • +7 955+555+55+55.
-
 def check_phone_number(number):
-    pass
-
-
-lst_numbers = ["+7 955 555-55-55", "9555555555", "8(955)555-55-55", "+7 955 555 55 55", "7(955) 555-55-55", "+7 955+555+55+55"]
+    re_split_str = re.split(r'[+ \-()]', number)
+    str_upd = ''.join([i for i in re_split_str if i])
+    if len(str_upd) == 10:
+        pass
+    else:
+        str_upd = str_upd[1:]
+    result = re.sub(r'([\d]{3})([\d]{3})([\d]{2})([\d]{2})', r'+7(\1)-\2-\3-\4', str_upd)
+    print(result)
+    return result
+lst_numbers = ["+7 915 555-55-55", "9255555555", "8(935)555-55-55", "+7 945 555 55 55", "7(955) 555-55-55", "+7 965+555+55+55"]
 for _ in lst_numbers:
     check_phone_number(_)
