@@ -15,14 +15,8 @@ def auto_number(string):
         return f"Number - {lst_result.group(1)} Rigion - {lst_result.group(2)}"
     except:
         print(f"Error's")
-
-
 auto_number("A013TA123")
 auto_number("A013TA23")
-
-
-
-
 #
 # Задание 2.
 # Постарайтесь написать (в крайнем случае найти) самый полный шаблон для проверки e-mail адресов через регулярное выражение, которая проверяет e-mail адрес на валидность. Можно руководствоваться следующими минимальными требованиями:
@@ -33,10 +27,29 @@ auto_number("A013TA23")
 # • после последней точки должно быть не менее 2-х и не более 4-х символов, причем наличие цифр не допускается;
 # • между последней точкой и символом “@” должно быть не менее 2-х символов
 # • слева от “@” должно быть не менее четырех символов
-#
+my_email = ["vas-atc@yandex.ru", "vas-atc@mail.ru", "vas.ide2022@gmail.com", "vasatc1987@gmail.com"]
+def check_email(email_str):
+    email_example = r"[\S]{4,10000}@[\w]{2,10000}\.[a-zA-Z0-9]{2,4}"
+    new_email = re.findall(email_example, email_str)
+    print(new_email)
+# ((?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\]))
+for _ in my_email:
+    check_email(_)
 # **Задание 3. **
 # Напишите функцию, которая будет удалять все последовательные повторы слов из заданной строки при помощи регулярных выражений.
 #
+test_lst = ["alllllloooneee", "Myyyyy nnnameee", "Aaaaallex"]
+def normalize_str(str_for_normalize):
+    normalize_example = re.sub(r'(\w+)(\s+\1)+', r'\1', str_for_normalize)
+    print(normalize_example)
+    # return re.sub(r'(\w+)(\s+\1)+', r'\1', str_for_normalize)
+
+
+for _ in test_lst:
+    normalize_str(_)
+
+
+
 # Задание 4.
 # Напишите функцию, которая будет проверять номер сотового телефона на валидность, если он валиден, то переводить его в формат:
 # +7(xxx)-xxx-xx-xx
@@ -49,3 +62,11 @@ auto_number("A013TA23")
 # • +7 955 555 55 55;
 # • 7(955) 555-55-55;
 # • +7 955+555+55+55.
+
+def check_phone_number(number):
+    pass
+
+
+lst_numbers = ["+7 955 555-55-55", "9555555555", "8(955)555-55-55", "+7 955 555 55 55", "7(955) 555-55-55", "+7 955+555+55+55"]
+for _ in lst_numbers:
+    check_phone_number(_)
