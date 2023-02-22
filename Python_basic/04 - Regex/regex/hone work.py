@@ -38,7 +38,7 @@ for _ in my_email:
 # **Задание 3. **
 # Напишите функцию, которая будет удалять все последовательные повторы слов из заданной строки при помощи регулярных выражений.
 
-test_lst = ["alone alone alone", "My My MY", "VAS VAS VAS"]
+test_lst = ["alone alone alone", "My My My", "VAS VAS VAS"]
 def normalize_str(str_for_normalize):
     normalize_example = re.sub(r'(\w+)(\s+\1)+', r'\1', str_for_normalize)
     print(normalize_example)
