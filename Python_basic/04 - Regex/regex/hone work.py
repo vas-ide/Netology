@@ -40,9 +40,9 @@ for _ in my_email:
 
 test_lst = ["alone alone alone", "My My MY", "VAS VAS VAS"]
 def normalize_str(str_for_normalize):
-    normalize_example = re.sub(r'([a-zA-Z]?)\s', r'\1', str_for_normalize)
+    normalize_example = re.sub(r'(\w+)(\s+\1)+', r'\1', str_for_normalize)
     print(normalize_example)
-    # return re.sub(r'(\w+)(\s+\1)+', r'\1', str_for_normalize)
+    return normalize_example
 for _ in test_lst:
     normalize_str(_)
 
