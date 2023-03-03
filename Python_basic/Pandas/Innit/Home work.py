@@ -10,9 +10,21 @@ import pandas as pd
 # По данным файла power.csv посчитайте суммарное потребление стран Прибалтики (Латвия, Литва и Эстония) категорий 4, 12 и 21 за период с 2005 по 2010 года. Не учитывайте в расчетах отрицательные значения quantity.
 data_country = pd.read_csv("power.csv")
 # data_country_inf = data_country[ data_country['country'].str.contains('Es', case=False) ]['country'].unique()
-needed_year = [2005, 2006, 2007, 2008, 2009, 2010]
-filtered_data_country = data_country[(data_country['country'] == 'Lithuania') | (data_country['country'] == 'Latvia') | (data_country['country'] == 'Estonia')][data_country["year"] >= 2005][data_country["year"] <= 2010]
-print(filtered_data_country)
+filtered_data_country = data_country[(data_country['country'] == 'Lithuania') | (data_country['country'] == 'Latvia') | (data_country['country'] == 'Estonia')]
+filtered_data_country_year = filtered_data_country[(filtered_data_country['year'] >= 2005)]
+filtered_data_country_year_add = filtered_data_country_year[(filtered_data_country_year['year'] <= 2010)]
+filtered_data_country_year_category = filtered_data_country_year_add[(filtered_data_country_year_add['category'] == 4) | (filtered_data_country_year_add['category'] == 12) | (filtered_data_country_year_add['category'] == 21)]
+needed_quantity = 0
+# print(filtered_data_country_year_category)
+for i in filtered_data_country_year_category:
+    print(filtered_data_country_year_category["quantity"])
+#     filtered_data_country_year_category["quantity"]
+#     with open("test.txt", "a", encoding="utf8") as code:
+#         code.write(f"{filtered_data_country_year_category['quantity']}\n")
+
+    # needed_quantity += filtered_data_country_add["quantity"]
+# print(needed_quantity)
+# print(filtered_data_country_add)
 
 
 # Задание 3
