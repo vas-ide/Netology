@@ -14,17 +14,14 @@ filtered_data_country = data_country[(data_country['country'] == 'Lithuania') | 
 filtered_data_country_year = filtered_data_country[(filtered_data_country['year'] >= 2005)]
 filtered_data_country_year_add = filtered_data_country_year[(filtered_data_country_year['year'] <= 2010)]
 filtered_data_country_year_category = filtered_data_country_year_add[(filtered_data_country_year_add['category'] == 4) | (filtered_data_country_year_add['category'] == 12) | (filtered_data_country_year_add['category'] == 21)]
-needed_quantity = 0
-# print(filtered_data_country_year_category)
-for i in filtered_data_country_year_category:
-    print(filtered_data_country_year_category["quantity"])
-#     filtered_data_country_year_category["quantity"]
+filtered_data_upd = filtered_data_country_year_category[(filtered_data_country_year_category["quantity"] > 0)]
+print(filtered_data_upd["quantity"].sum())
+print(len((filtered_data_upd)))
+print(data_country['quantity'].sum())
+
+
 #     with open("test.txt", "a", encoding="utf8") as code:
 #         code.write(f"{filtered_data_country_year_category['quantity']}\n")
-
-    # needed_quantity += filtered_data_country_add["quantity"]
-# print(needed_quantity)
-# print(filtered_data_country_add)
 
 
 # Задание 3
@@ -32,3 +29,10 @@ for i in filtered_data_country_year_category:
 # Примеры страниц (необязательно брать именно эти):
 # https://fortrader.org/quotes
 # https://www.finanz.ru/valyuty/v-realnom-vremeni
+
+
+
+# df = pd.read_html("https://fortrader.org/quotes")
+# print(df)
+# df = pd.read_html("https://www.finanz.ru/valyuty/v-realnom-vremeni")
+# print(df)
