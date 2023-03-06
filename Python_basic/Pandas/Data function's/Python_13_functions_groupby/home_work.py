@@ -3,12 +3,37 @@
 # Домашнее задание
 #
 # Задание 1
-#
+import pandas as pd
+import pathlib
+wokr_path = pathlib.Path.cwd()
+
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_colwidth', None)
+pd.options.display.expand_frame_repr = False
 # Напишите функцию, которая классифицирует фильмы из материалов занятия по следующим правилам:
 # - оценка 2 и меньше - низкий рейтинг
 # - оценка 4 и меньше - средний рейтинг
 # - оценка 4.5 и 5 - высокий рейтинг
-#
+df_1 = pd.read_csv("C:\\Users\\VAS-PC-IDE\\Documents\\CODE\\Python\\Netology\\Python_basic\\Pandas\\Data function's\\ml-latest-small\\movies.csv")
+df_2 = pd.read_csv("C:\\Users\\VAS-PC-IDE\\Documents\\CODE\\Python\\Netology\\Python_basic\\Pandas\\Data function's\\ml-latest-small\\ratings.csv")
+df_3 = pd.read_csv("C:\\Users\\VAS-PC-IDE\\Documents\\CODE\\Python\\Netology\\Python_basic\\Pandas\\Data function's\\ml-latest-small\\links.csv")
+df_4 = pd.read_csv("C:\\Users\\VAS-PC-IDE\\Documents\\CODE\\Python\\Netology\\Python_basic\\Pandas\\Data function's\\ml-latest-small\\tags.csv")
+# print(f'{df_1}\n{df_2}\n{df_3}\n{df_4}')
+# print(f'{len(df_1)}\n{len(df_2)}\n{len(df_3)}\n{len(df_4)}')
+def classify(row):
+    if row.rating in not type(float)
+
+
+df_23 = pd.merge(df_2, df_3, how="left")
+df = pd.merge(df_1, df_23, how="left")
+
+print(df.head(10), len(df))
+
+
+
+
+
 # Результат классификации запишите в столбец class
 #
 # Задание 2
