@@ -21,21 +21,27 @@ df_3 = pd.read_csv("C:\\Users\\VAS-PC-IDE\\Documents\\CODE\\Python\\Netology\\Py
 df_4 = pd.read_csv("C:\\Users\\VAS-PC-IDE\\Documents\\CODE\\Python\\Netology\\Python_basic\\Pandas\\Data function's\\ml-latest-small\\tags.csv")
 # print(f'{df_1}\n{df_2}\n{df_3}\n{df_4}')
 # print(f'{len(df_1)}\n{len(df_2)}\n{len(df_3)}\n{len(df_4)}')
-def classify(row):
-    if row.rating in not type(float)
-
-
+# def classify(row):
+#     if row.rating in not type(float)
 df_23 = pd.merge(df_2, df_3, how="left")
 df = pd.merge(df_1, df_23, how="left")
-
-print(df.head(10), len(df))
-
-
-
-
-
+# print(df.head(10), len(df))
+df_upd = df[['title', 'movieId', 'userId', 'rating']]
+# print(df_upd.head(15), len(df_upd))
+df_add = df_upd.groupby('title').agg({'rating': 'mean'})
+print(df_add.head(15), len(df_add))
+def classification(row):
+    if row.rating <= 2:
+        return f"Low rating"
+    elif row.rating <= 4.4:
+        return f"Middle rating"
+    elif row.rating <= 5:
+        return f"Big rating"
+    else:
+        return f"Need additional analiz"
+df_add['calssif'] = df_add.apply(classification, axis=1)
+print(df_add.sort_values('rating', ascending=False).head(350), len(df_add))
 # Результат классификации запишите в столбец class
-#
 # Задание 2
 #
 # Используем файл keywords.csv.
