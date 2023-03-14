@@ -38,20 +38,34 @@ class Solution:
     #     right = self.mergeTwoLists(lst_add[middle:])
     #     return self.merge_two_list(left, right)
 
+    # def mergeTwoLists(self, list1, list2):
+    #     lst_upd = []
+    #     if len(list1) == 1 or len(list2) == 1:
+    #         return lst_add
+    #     middle = len(lst_add)//2
+    #     left = self.mergeTwoLists(lst_add[:middle])
+    #     right = self.mergeTwoLists(lst_add[middle:])
+    #     return self.merge_two_list(left, right)
+
+        # def mergeTwoLists(self, list1, list2):
+        #     [list1.append(item) for item in list2]
+        #     list1.sort()
+        #     print(list1)
+        #     return list1
     def mergeTwoLists(self, list1, list2):
-        lst_upd = []
-        if len(list1) == 1 or len(list2) == 1:
-            return lst_add
-        middle = len(lst_add)//2
-        left = self.mergeTwoLists(lst_add[:middle])
-        right = self.mergeTwoLists(lst_add[middle:])
-        return self.merge_two_list(left, right)
+        # lst = [*list1, *list2]
+        lst = [item for sublist in zip(list1, list2) for item in sublist]
+        print(sorted(lst))
+        return sorted(lst)
+
 
 
 sol = Solution()
+sol.mergeTwoLists([1, 2, 4], [1, 3, 4])
 # sol.merge_two_list([1, 2, 4], [1, 3, 4])
-print(sol.mergeTwoLists(sol.merge_two_list([1, 2, 4], [1, 3, 4])))
+# print(sol.mergeTwoLists(sol.merge_two_list([1, 2, 4], [1, 3, 4])))
 # sol.merge_two_list([], [0])
 
 # sol = Solution()
 # sol.mergeTwoLists(list2, list2)
+
